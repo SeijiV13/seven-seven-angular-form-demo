@@ -1,0 +1,46 @@
+<form [formGroup]="antiHeroForm" (ngSubmit)="submit()">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input formControlName="firstName" type="text" id="firstName" class="form-control">
+        <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="alert alert-danger">
+            <div *ngIf="firstName?.errors?.['required']">
+                Name is required
+            </div>
+            <div *ngIf="firstName?.errors?.['email']">
+                Invalid email format
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input formControlName="lastName" type="text" id="lastName" class="form-control">
+        
+    </div>
+    <div class="form-group">
+        <label for="knownAs">Known As</label>
+        <input formControlName="knownAs" type="text" id="knownAs" class="form-control">
+        
+    </div>
+    <div formGroupName="address">
+        <label for="city">City</label>
+        <input formControlName="city" type="text" id="city" class="form-control">
+        
+        <label for="street">Street</label>
+        <input formControlName="street" type="text" id="street" class="form-control">
+        
+        <label for="country">Country</label>
+        <input formControlName="country" type="text" id="country" class="form-control">
+        
+    </div>
+    <ng-container formArrayName="powers">
+        <label for="powers">Powers</label>
+        <div class="input-group mb-3" *ngFor="let _ of powerFormArray.controls; index as i">
+            <input [formControlName]="i" class="form-control">
+            <button (click)="deletePower(i)" class="btn btn-danger">Delete</button>
+        </div>
+        <button type="button" class="btn btn-info" (click)="addPower()">Add Power</button>
+
+    </ng-container>
+    <button type="submit" class="btn btn-success" >Submit</button>
+    <button type="button" class="btn btn-info" (click)="clear()" >Clear</button>
+</form>

@@ -1,0 +1,25 @@
+<!-- PIPES -->
+<!-- data transformation   | -->
+<!-- 'm/d/yy' -->
+<div>{{date1 | date: 'short'}}</div>
+<div>{{date1 | date: 'medium'}}</div>
+<div>{{date1 | date: 'long' | uppercase}}</div>
+<div>{{date1 | date: 'shortDate'}}</div>
+<div>{{date1 | date: 'mediumDate'}}</div>
+<div>{{date1 | date: 'longDate'}}</div>
+<div>{{date1 | date: 'fullDate'}}</div>
+<div>{{date1 | date: 'shortTime'}}</div>
+<div>{{date1 | date: 'mediumTime'}}</div>
+<div>{{date1 | date: 'longTime'}}</div>
+
+<div>{{textUpper | uppercase | lowercase}}</div>
+<div>{{textLower | lowercase}}</div>
+
+
+<div>{{currencyValue | currency: 'CLP'}}</div>
+
+<div>{{decimalValue | number: '1.1-2'}}</div>
+
+<div>{{percentValue | percent: '1.1-2'}}</div>
+
+<div>{{customValue | exponential}}</div>
